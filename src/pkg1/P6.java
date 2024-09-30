@@ -23,6 +23,7 @@ public class P6 {
 				String s1=j + "*" + i + "=" + j*i;
 				fw1.write(s1);
 				fw1.write("\n");
+				
 			}
 			fw1.write("\n");
 		}
