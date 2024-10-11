@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Scanner;
+import java.util.stream.Collectors;
 
 public class P10 {
 
@@ -17,8 +18,18 @@ public class P10 {
 		List<Integer> cMarks= new ArrayList<>();
 		List<Integer> bMarks= new ArrayList<>();
 		List<Integer> totalMarks=new ArrayList<>();
+		List<String> eToppers=new ArrayList<>();
+		List<String> mToppers=new ArrayList<>();
+		List<String> pToppers=new ArrayList<>();
+		List<String> cToppers=new ArrayList<>();
+		List<String> bToppers=new ArrayList<>();
 		int goldMedalistMarks=0;
 		int pos=0;
+//		List<Integer> pos1= new ArrayList<>();
+//		List<Integer> pos2= new ArrayList<>();
+//		List<Integer> pos3= new ArrayList<>();
+//		List<Integer> pos4= new ArrayList<>();
+//		List<Integer> pos5= new ArrayList<>();
 		File f1=new File("Marks.txt");
 		Scanner sc1=new Scanner(f1);
 		while(sc1.hasNext()) {
@@ -48,8 +59,53 @@ public class P10 {
 		goldMedalistMarks=Collections.max(totalMarks);
 		pos=totalMarks.indexOf(goldMedalistMarks);
 		String goldMedalist=names.get(pos);
-		System.out.println(goldMedalist+ " IS the gold medalist (Overall Top Scorer) with "+ goldMedalistMarks+" Marks");
-		
+		System.out.println(goldMedalist+ " IS the gold medalist (Overall Top Scorer), with "+ goldMedalistMarks+" Marks.");
+		for(int i=0;i<eMarks.size();i++) {
+			if(eMarks.get(i)==highestEMarks) {
+				eToppers.add(names.get(i));
+			}
+		}
+		for(int i=0;i<names.size();i++) {
+			if(mMarks.get(i)== highestMMarks) {
+				mToppers.add(names.get(i));
+			}
+		}
+		for(int i=0;i<names.size();i++) {
+			if(pMarks.get(i)== highestPMarks) {
+				pToppers.add(names.get(i));
+			}
+		}
+		for(int i=0;i<names.size();i++) {
+			if(cMarks.get(i)== highestCMarks) {
+				cToppers.add(names.get(i));
+			}
+		}
+		for(int i=0;i<names.size();i++) {
+			if(bMarks.get(i)== highestBMarks) {
+				bToppers.add(names.get(i));
+			}
+		}
+		String topEScorer=eToppers.toString();
+		String topMScorer=mToppers.toString();
+		String topPScorer=pToppers.toString();
+		String topCScorer=cToppers.toString();
+		String topBScorer=bToppers.toString();
+//		System.out.println(goldMedalist+ " IS the gold medalist (Overall Top Scorer), with "+ goldMedalistMarks+" Marks.");
+		System.out.println("\nThe Top English Scorer is/are:"+ topEScorer.substring(1,topEScorer.length()-1) + ", with "+ highestEMarks +" Marks.");
+		System.out.println("The Top Maths Scorer is/are:"+ topMScorer.substring(1,topMScorer.length()-1) +", with "+ highestMMarks +" Marks.");
+		System.out.println("The Top Physics Scorer is/are:"+ topPScorer.substring(1,topPScorer.length()-1) +", with "+ highestPMarks +" Marks.");
+		System.out.println("The Top Chemistry Scorer is/are:"+ topCScorer.substring(1,topCScorer.length()-1) +", with "+ highestCMarks +" Marks.");
+		System.out.println("The Top Biology Scorer is/are:"+ topBScorer.substring(1,topBScorer.length()-1) +", with "+ highestBMarks +" Marks.");
+
+//		System.out.print("The Top English Scorer is/are: ");
+//		for(int i=0;i<eToppers.size();i++) {
+//			System.out.print(eToppers.get(i)+" , ");
+//		}
+//		System.out.print(" with "+ highestEMarks +" Marks.\n");
+//		System.out.println("The Top Maths Scorer is/are: "+ mToppers +", with "+ highestMMarks +" Marks.");
+//		System.out.println("The Top Physics Scorer is/are: "+ pToppers +", with "+ highestPMarks +" Marks.");
+//		System.out.println("The Top Chemistry Scorer is/are: "+ cToppers +", with "+ highestCMarks +" Marks.");
+//		System.out.println("The Top Biology Scorer is/are: "+ bToppers +", with "+ highestBMarks +" Marks.");
 	}
 	
 }
